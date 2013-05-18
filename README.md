@@ -18,5 +18,5 @@ lla base de datos esta exportada en el derictorio SQL/
 2-table IMPRESOR en la vista de relaciones
 	empleado_id=>'event'.'empleado'.'id.| Ondelete =>'SET NULL' | update'cascade'
 
-1-table MOVIL en la vista de relaciones
-	empleado_id=>'event'.'empleado
+3-table MOVIL en la vista de relaciones
+	empleado_id=>'event'.'empleado'.'id.| Ondelete =>'SET NULL' | update'cascade'
