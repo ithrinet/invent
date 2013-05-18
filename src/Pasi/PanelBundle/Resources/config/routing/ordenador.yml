@@ -1,0 +1,30 @@
+ordenador:
+    pattern:  /
+    defaults: { _controller: "PanelBundle:Ordenador:index" }
+
+ordenador_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PanelBundle:Ordenador:show" }
+
+ordenador_new:
+    pattern:  /new
+    defaults: { _controller: "PanelBundle:Ordenador:new" }
+
+ordenador_create:
+    pattern:  /create
+    defaults: { _controller: "PanelBundle:Ordenador:create" }
+    requirements: { _method: post }
+
+ordenador_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PanelBundle:Ordenador:edit" }
+
+ordenador_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PanelBundle:Ordenador:update" }
+    requirements: { _method: post }
+
+ordenador_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PanelBundle:Ordenador:delete" }
+

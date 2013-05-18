@@ -1,0 +1,39 @@
+<h1>Movil list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Modelo</th>
+            <th>Numero</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('movil_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.modelo }}</td>
+            <td>{{ entity.numero }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('movil_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('movil_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('movil_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>

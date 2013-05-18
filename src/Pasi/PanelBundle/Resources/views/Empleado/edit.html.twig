@@ -1,0 +1,35 @@
+{% extends '::layout_admin.html.twig' %}
+
+{% block titulo %}Modificacion del Empleado{% endblock %}
+
+{% block contenedor %}
+<div class="span12">
+				<div class="span3">
+					<ul class="nav nav-list well">
+						<li class="nav-header">
+							List header
+						</li>
+						<li class="active">
+							<a href="{{ path('empleado') }}">Lista Empleados</a>
+						</li>
+						<li>
+							<a href="{{ path('empleado_new') }}">Crear Nuevo</a>
+						</li>
+						<li>
+							<a href="#">Help</a>
+						</li>
+					</ul>
+				</div>
+				<div class="span9">
+					<form action="{{ path('empleado_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+					    {{ form_widget(edit_form) }}
+					    <p>
+					        <button type="submit" class="btn btn-info">Guardar</button>
+					        <form action="{{ path('empleado_delete', { 'id': entity.id }) }}" method="post">
+					        <button type="submit" class="btn btn-warning" >Eliminar</button>
+					        </form>
+					   </p>
+					</form>					
+				</div>
+</div>
+{% endblock %}

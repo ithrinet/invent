@@ -1,0 +1,7 @@
+parameters:
+#    impresora.example.class: Pasi\ImpresoraBundle\Example
+
+services:
+#    impresora.example:
+#        class: %impresora.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

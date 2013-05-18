@@ -1,0 +1,78 @@
+
+{% extends '::layout.html.twig' %}
+
+
+{%block titulo  %} Bienvenido en la Portada{% endblock %}
+{% block articulo %}
+									<h3 class="text-center text-info"> Informacion de Empleado. </h3>
+									<div class="media well">
+										
+										<div class="media-body">		
+										<img src="{{ asset('img/user_info.png') }}" class="media-object" alt="">									
+											<div class="dateil"	>
+												<table>
+													<tr>
+													
+														<td><h4 class="media-heading"><span>Nombre Completo :</span></h4></td>
+														<td><h4 class="media-heading"><span>{{ empleado.nombreCompleto	 }}</span> </h4></td>
+													
+													</tr>
+													<tr>
+														<th>Correo : </th>
+														<td>{{ empleado.correo }}</td>
+													</tr>													
+													<tr>
+														<th>Direccion :  </th>
+														<td>{{ empleado.direccion }}</td>
+													</tr>
+													
+													<tr>
+														<th>Fecha Nacimiento : </th>
+														<td>{{ empleado.fechaNacimiento|date('Y-m-d H:i:s') }}</td>
+													</tr>
+													
+													{% for movil in movil %}
+													<tr>
+														<th>Tefefono {{ loop.index }} : </th>
+														<td>{{ movil.modelo }}</td>
+													
+													</tr>
+													<tr>
+														<th>Numero : </th>
+														<td>{{ movil.numero }}</td>
+													<tr>
+													{% else %}
+													
+														<th>Telefono : </th>
+														<td>No le esta asignado ningun telefon</td>
+													
+													{% endfor %}
+													</tr>
+													{% for ordenador in ordenador %}
+													<tr>
+														<th>Ordenaor {{ loop.index }} : </th>
+														<td>{{ ordenador.alias }}</td>
+													</tr>
+													{% else %}
+													<tr>
+														<th>Ordenaor :</th>
+														<td>Sin Ordenador</td>
+													</tr>
+													{% endfor %}
+													
+													{% for impresora in impresora %}
+														<tr>
+														<th>Impresora {{ loop.index }} : </th>
+															<td>{{ impresora.alias }}</td>
+																												
+														{% else %}
+															<th>Impresora : </th>
+															<td>Sin impresora</td>
+														{% endfor %}
+													</tr>
+												</table>
+											</div>
+										</div>
+									</div>
+							
+{% endblock %}

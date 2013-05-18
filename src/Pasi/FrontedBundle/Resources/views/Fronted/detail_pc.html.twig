@@ -1,0 +1,50 @@
+
+{% extends '::layout.html.twig' %}
+
+
+{%block titulo  %} Informacion de Ordenador {{ ordenador.alias}}{% endblock %}
+{% block articulo %}
+									<h3 class="text-center text-info"> Informacion de Ordenador {{ ordenador.alias}}</h3>
+									<div class="media well">
+										
+										<div class="media-body">		
+										<img src="{{ asset('img/pc_info.png') }}" class="media-object" alt="">									
+											<div class="dateil"	>
+												<table>
+													<tr>
+														<td><h4 class="media-heading">Identificador :  </h4></td>
+														<td><h4 class="media-heading"> {{ ordenador.alias}} </h4></td>
+													</tr>													
+													<tr>
+														<td>Asignado a :</td>
+														{% if ordenador.empleado  %}
+														<td><a href="{{ path('detail_empleado',{'id':ordenador.empleado.id	}) }}">{{ ordenador.empleado}}</a></td>
+														{% else %}
+														<td>Sin Asignacion</td>
+														{% endif %}
+														
+													</tr>
+													<tr>
+														<td>Discu Duro : </td>
+														<td>{{ ordenador.disco }}</td>
+													</tr>													
+													<tr>
+														<td>Memoria RAM  :  </td>
+														<td>{{ ordenador.ram }}</td>
+													</tr>
+													
+													<tr>
+														<td>CPU : </td>
+														<td>{{ ordenador.cpu}}</td>
+													</tr>
+													<tr>
+														<td>Descripcion :</td>
+														<td>{{ ordenador.descripcion}}</td>
+													</tr>
+													
+												</table>
+											</div>
+										</div>
+									</div>
+							
+{% endblock %}

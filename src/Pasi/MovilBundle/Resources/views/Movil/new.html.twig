@@ -1,0 +1,16 @@
+<h1>Movil creation</h1>
+
+<form action="{{ path('movil_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <button type="submit">Create</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('movil') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>

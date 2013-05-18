@@ -1,0 +1,29 @@
+impresora:
+    pattern:  /
+    defaults: { _controller: "PanelBundle:Impresora:index" }
+
+impresora_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PanelBundle:Impresora:show" }
+
+impresora_new:
+    pattern:  /new
+    defaults: { _controller: "PanelBundle:Impresora:new" }
+
+impresora_create:
+    pattern:  /create
+    defaults: { _controller: "PanelBundle:Impresora:create" }
+    requirements: { _method: post }
+
+impresora_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PanelBundle:Impresora:edit" }
+
+impresora_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PanelBundle:Impresora:update" }
+    requirements: { _method: post }
+
+impresora_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PanelBundle:Impresora:delete" }

@@ -1,0 +1,52 @@
+{% extends '::layout_admin.html.twig' %}
+
+{% block titulo %} Gestion de Impresoras{% endblock %}
+
+{% block contenedor %}
+<div class="span12">
+	<h3 class="text-panel"> Gestion de Moviles</h3>
+	<table class="table table-striped">
+		<thead>
+		{% if entities %}
+			<tr>
+			<th>#</th>
+            <th>Modelo</th>
+            <th>Numero</th>
+            <th>Asignado a</th>
+            <th colspan="2" >Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for movil in entities %}
+			<tr class="">
+				<td>{{ loop.index }}</td>
+				<td><a href="{{ path('movil_show', { 'id': movil.id }) }}">{{ movil.modelo }}</a></td>
+				<td>{{ movil.numero }}</td>
+				<!-- verificacion de la asignacion-->								
+				{% if movil.empleado %}
+				<td><a href="{{ path('empleado_show', { 'id': movil.empleado.id }) }}">{{ movil.empleado }}</a></td>
+				{% else %}
+				<td>Sin Asignacion</td>		
+				{% endif %}
+				<td>
+					<a href="{{ path('movil_edit', { 'id': movil.id }) }}">Editar</a>
+				</td>
+				<td>
+					<a href="{{ path('movil_delete', { 'id': movil.id }) }}">Eliminar</a>
+				</td>
+			</tr>
+		{% endfor %}
+		{% else %}
+							<tr>
+								<th>
+									<span>
+									No Hay Empleados <a href="{{ path('empleado_new') }}">Crea Uno a Hora</a>
+									<span>
+								</th>
+							</tr>
+						 {% endif %}
+		</tbody>
+	</table>
+</div>
+{% endblock %}
+

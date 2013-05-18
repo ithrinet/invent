@@ -1,0 +1,7 @@
+parameters:
+#    ordenador.example.class: Pasi\OrdenadorBundle\Example
+
+services:
+#    ordenador.example:
+#        class: %ordenador.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

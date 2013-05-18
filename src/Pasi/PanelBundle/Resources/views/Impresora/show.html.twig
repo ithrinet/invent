@@ -1,0 +1,64 @@
+{% extends '::layout_admin.html.twig' %}
+
+{% block titulo %}Detalles De la impresora{% endblock %}
+
+{% block contenedor %}
+	<div class="span12">
+				<h3 class="text-center text-info"> Informacion de impresora. </h3>
+					<div class="media well">
+						
+						<div class="media-body">		
+						<img src="{{ asset('img/print_info.png') }}" class="media-object" alt="">									
+							<div class="dateil"	>
+								<table>
+									<tr>
+									
+										<td><h4 class="media-heading"><span>Identificador :</span></h4></td>
+										<td><h4 class="media-heading"><span>{{ entity.alias	 }}</span> </h4></td>
+									
+									</tr>
+									<th>Asignado a : </th>
+										{% if entity.empleado %}
+										<td><a href="{{ path('empleado_show', { 'id': entity.empleado.id }) }}">{{ entity.empleado }}</a></td>
+										{% else %}
+										<td>
+										Sin asignacion
+										</td>
+										{% endif %}
+										</tr>													
+									<tr>
+										<th>Identificador :  </th>
+										<td>{{ entity.alias }}</td>
+									</tr>
+									
+									<tr>
+										<th>Marca : </th>
+										<td>{{ entity.marca }}</td>
+									</tr>
+									<tr>
+										<th>Modelo : </th>
+										<td>{{ entity.modelo }}</td>
+									</tr>
+									
+									<tr>
+										<th>Tipo : </th>
+										<td>{{ entity.tipo }}</td>
+									</tr>
+									<tr>
+										<td>
+											<form action="{{ path('impresora_edit', { 'id': entity.id }) }}" method="post">				            
+									            <button type="submit" class="btn btn-info">Editar</button>
+									        </form>
+									        
+									        <form action="{{ path('impresora_edit', { 'id': entity.id }) }}" method="post">
+									            <button type="submit" class="btn btn-warning" >Eliminar</button>
+									        </form>	
+									        
+										</td>
+									</tr>									
+								</table>
+							</div>
+						</div>
+					</div>
+	</div>
+{% endblock %}

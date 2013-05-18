@@ -1,0 +1,35 @@
+
+{% extends '::layout.html.twig' %}
+
+
+{%block titulo  %} Informacion de movil {{ movil.modelo}}{% endblock %}
+{% block articulo %}
+									<h3 class="text-center text-info"> Informacion de Movil {{ movil.modelo}}</h3>
+									<div class="media well">
+										
+										<div class="media-body">		
+										<img src="{{ asset('img/movel_info.png') }}" class="media-object" alt="">									
+											<div class="dateil"	>
+												<table>
+													<tr>
+														<td><h4 class="media-heading">Modelo :</h4></td>
+														<td><h4 class="media-heading"> {{ movil.modelo}} </h4></td>
+													</tr>													
+													<tr>
+														<td>Asignado a :</td>
+														{% if movil.empleado %}
+														<td><a href="{{ path('detail_empleado',{'id':movil.empleado.id	}) }}">{{ movil.empleado}}</a></td>
+														{% else %}
+														<td>Sin asignacion<td>
+														{% endif %}
+													</tr>
+													<tr>
+														<td>Numero : </td>
+														<td>{{ movil.numero }}</td>
+													</tr>													
+												</table>
+											</div>
+										</div>
+									</div>
+							
+{% endblock %}

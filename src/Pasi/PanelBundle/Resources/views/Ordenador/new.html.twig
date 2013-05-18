@@ -1,0 +1,35 @@
+{% extends '::layout_admin.html.twig' %}
+
+{% block titulo %}Creacion de Ordenador{% endblock %}
+
+{% block contenedor %}
+	<div class="span12">
+				<h3 class="text-panel">Crear Ordenador</h3>
+				<div class="span3">
+					<ul class="nav nav-list well">
+						<li class="nav-header">
+							List header
+						</li>
+						<li class="active">
+							<a href="{{ path('ordenador') }}">Lista Ordenadores</a>
+						</li>
+						<li>
+							<a href="{{ path('ordenador_new') }}">Crear Nuevo</a>
+						</li>
+						<li class="divider">
+						</li>
+						<li>
+							<a href="#">Help</a>
+						</li>
+					</ul>
+				</div>
+				<div class="span9">
+					<form action="{{ path('ordenador_create') }}" method="post" {{ form_enctype(form) }}>
+					    {{ form_widget(form) }}
+					    <p>
+					        <button type="submit" class="btn btn-info">Guardar</button>
+					    </p>
+					</form>
+			</div>
+	</div>
+{% endblock %}

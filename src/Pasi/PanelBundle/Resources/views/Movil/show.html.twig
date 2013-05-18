@@ -1,0 +1,50 @@
+{% extends '::layout_admin.html.twig' %}
+{% block titulo %}Informacion Del Ordenador {{entity.modelo}}{% endblock %}
+
+{% block contenedor %}
+<div class="span12">
+	<h3 class="text-center text-info"> Informacion de Movil. </h3>
+	<div class="media well">
+		
+		<div class="media-body">		
+		<img src="{{ asset('img/movel_info.png') }}" class="media-object" alt="">									
+			<div class="dateil"	>
+				<table>
+					<tr>
+					
+						<td><h4 class="media-heading"><span>Identificador :</span></h4></td>
+						<td><h4 class="media-heading"><span>{{ entity.modelo }}</span> </h4></td>
+					
+					</tr>
+					<tr>
+					<th>Asignado a : </th>
+					{% if entity.empleado %}
+					<td><a href="{{ path('empleado_show', { 'id': entity.empleado.id }) }}">{{ entity.empleado }}</a></td>
+					{% else %}
+					<td>
+					Sin asignacion
+					</td>
+					{% endif %}
+					</tr>
+					<tr>
+						<th>Numero : </th>
+						<td>{{ entity.numero }}</td>
+					</tr>
+					<tr>
+						<td>
+							<form action="{{ path('ordenador_edit', { 'id': entity.id }) }}" method="post">				            
+					            <button type="submit" class="btn btn-info">Editar</button>
+					        </form>
+					        
+					        <form action="{{ path('ordenador_delete', { 'id': entity.id }) }}" method="post">
+					            <button type="submit" class="btn btn-warning" >Eliminar</button>
+					        </form>	
+					        
+						</td>
+					</tr>									
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

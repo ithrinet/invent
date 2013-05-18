@@ -1,0 +1,46 @@
+{% extends '::layout_admin.html.twig' %}
+
+{% block titulo %} Panel de Gestion{% endblock %}
+
+{% block contenedor %}
+<div class="span12">
+				<h3 class="text-panel"> Panel de Gestion</h3>
+				<div class="span3">
+					<ul class="nav nav-list well">
+						<li class="nav-header">
+							List header
+						</li>
+						<li class="active">
+							<a href="#">Perfil</a>
+						</li>
+						<li>
+							<a href="#">Mensajes</a>
+						<li>
+							<a href="#">Informacion</a>
+						</li>
+						<li>
+							<a href="#">Configuracion</a>
+						</li>
+						<li class="divider">
+						</li>
+						<li>
+							<a href="#">Ayuda</a>
+						</li>
+					</ul>
+				</div>
+				<div class="span9">
+						<div class="span3">
+							<a href="{{ path('empleado') }}" title="Empleados"><img alt="128x128" src="{{ asset('img/user_panel.png') }}" class="img-rounded" /></a>
+						</div>
+						<div class="span3">
+							<a href="{{ path('ordenador') }}" title="Ordenadores"><img alt="128x128" src="{{ asset('img/pc_panel.png') }}" class="img-rounded" /></a>
+						</div>
+						<div class="span3">
+							<a href="{{ path('movil') }}" title="Moviles"><img alt="128x128" src="{{ asset('img/movel_panel.png') }}" class="img-rounded" /></a>
+						</div>
+						<div class="span3">
+							<a href="{{ path('impresora') }}" title="Impresoras"><img alt="128x128" src="{{ asset('img/print_panel.png') }}" class="img-rounded" /></a>
+						</div>					
+				</div>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+empleado:
+    pattern:  /
+    defaults: { _controller: "PanelBundle:Empleado:index" }
+
+empleado_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PanelBundle:Empleado:show" }
+
+empleado_new:
+    pattern:  /new
+    defaults: { _controller: "PanelBundle:Empleado:new" }
+
+empleado_create:
+    pattern:  /create
+    defaults: { _controller: "PanelBundle:Empleado:create" }
+    requirements: { _method: post }
+
+empleado_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PanelBundle:Empleado:edit" }
+
+empleado_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PanelBundle:Empleado:update" }
+    requirements: { _method: post }
+
+empleado_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PanelBundle:Empleado:delete" }

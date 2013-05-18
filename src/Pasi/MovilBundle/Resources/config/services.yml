@@ -1,0 +1,7 @@
+parameters:
+#    movil.example.class: Pasi\MovilBundle\Example
+
+services:
+#    movil.example:
+#        class: %movil.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

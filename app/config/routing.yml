@@ -1,0 +1,22 @@
+fronted:
+    resource: "@FrontedBundle/Resources/config/routing.yml"
+
+panel:
+    resource: "@PanelBundle/Resources/config/routing.yml"
+    prefix:   /panel/
+
+empleado:
+    resource: "@EmpleadoBundle/Resources/config/routing.yml"
+    prefix:   /
+
+movil:
+    resource: "@MovilBundle/Resources/config/routing.yml"
+    prefix:   /
+
+impresora:
+    resource: "@ImpresoraBundle/Resources/config/routing.yml"
+    prefix:   /
+
+ordenador:
+    resource: "@OrdenadorBundle/Resources/config/routing.yml"
+    prefix:   /

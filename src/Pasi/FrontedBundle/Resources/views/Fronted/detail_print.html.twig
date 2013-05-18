@@ -1,0 +1,44 @@
+
+{% extends '::layout.html.twig' %}
+
+
+{%block titulo  %} Informacion de impresora {{ impresora.alias}}{% endblock %}
+{% block articulo %}
+									<h3 class="text-center text-info"> Informacion de impresora {{ impresora.alias}}</h3>
+									<div class="media well">
+										
+										<div class="media-body">		
+										<img src="{{ asset('img/print_info.png') }}" class="media-object" alt="">									
+											<div class="dateil"	>
+												<table>
+													<tr>
+														<td><h4 class="media-heading">Identificador :  </h4></td>
+														<td><h4 class="media-heading"> {{ impresora.alias}} </h4></td>
+													</tr>													
+													<tr>
+														<td>Asignado a :</td>
+														{% if impresora.empleado %}
+														<td><a href="{{ path('detail_empleado',{'id':impresora.empleado.id	}) }}">{{ impresora.empleado}}</a></td>
+														{% else %}
+														<td>Sin asignacion</td>
+														{% endif %}
+													</tr>
+													<tr>
+														<td>Marca : </td>
+														<td>{{ impresora.marca }}</td>
+													</tr>													
+													<tr>
+														<td>Modelo  :  </td>
+														<td>{{ impresora.modelo }}</td>
+													</tr>
+													
+													<tr>
+														<td>Tipo : </td>
+														<td>{{ impresora.tipo}}</td>
+													</tr>													
+												</table>
+											</div>
+										</div>
+									</div>
+							
+{% endblock %}

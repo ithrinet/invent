@@ -1,0 +1,57 @@
+{% extends '::layout_admin.html.twig' %}
+
+{% block titulo %} Lista de Los Ordenadores{% endblock %}
+
+{% block contenedor %}
+<div class="span12">
+	<h3 class="text-panel">Gestion de Ordenadores</h3>
+	<table class="table table-striped">
+		<thead>
+		{% if entities %}
+			<tr>
+			<th>#</th>
+            <th>Identificador</th>
+            <th>Ram</th>
+            <th>Disco</th>
+            <th>Cpu</th>
+            <th>Asignado a</th>
+            <th>Descripcion</th>
+            <th colspan="2" >Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for ordenador in entities %}
+			<tr class="">
+				<td>{{ loop.index }}</td>
+				<td><a href="{{ path('ordenador_show', { 'id': ordenador.id }) }}">{{ ordenador.alias }}</a></td>
+				<td>{{ ordenador.ram }}</td>
+	 			<td>{{ ordenador.disco }}</td>
+				<td>{{ ordenador.cpu }}</td>
+				<!-- verificacion de la asignacion-->								
+				{% if ordenador.empleado %}
+				<td><a href="{{ path('empleado_show', { 'id': ordenador.empleado.id }) }}">{{ ordenador.empleado }}</a></td>
+				{% else %}
+				<td>Sin Asignacion</td>		
+				{% endif %}
+				<td>{{ ordenador.descripcion }}</td>
+				<td>
+					<a href="{{ path('ordenador_edit', { 'id': ordenador.id }) }}">Editar</a>
+				</td>
+				<td>
+					<a href="{{ path('ordenador_delete', { 'id': ordenador.id }) }}">Eliminar</a>
+				</td>
+			</tr>
+		{% endfor %}
+		{% else %}
+			<tr>
+				<th>
+					<span>
+					No Hay Empleados <a href="{{ path('ordenador_new') }}">Crea Uno a Hora</a>
+					<span>
+				</th>
+			</tr>
+		{% endif %}
+		</tbody>
+	</table>
+</div>
+{% endblock %}

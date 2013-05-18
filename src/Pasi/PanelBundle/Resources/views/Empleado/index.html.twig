@@ -1,0 +1,83 @@
+{% extends '::layout_admin.html.twig' %}
+
+{% block titulo %} Lista de Los Empleados{% endblock %}
+
+{% block contenedor %}
+<div class="span12">
+				<h3 class="text-panel"> Gestion de Empleados</h3>
+				<div class="span12">
+					<table class="table table-striped">
+						<thead>
+						{% if empleados %}
+							<tr>
+								<th>#</th>
+								<th>NombreCompleto</th>
+								<th>Correo</th>
+								<th>Direccion</th>
+								<th>Fechanacimiento</th>
+								<th>Ordenador</th>
+								<th>Movil</th>
+								<th>Impresora</th>
+								<th colspan="2">Acciones</th>
+							</tr>
+						</thead>
+						<tbody>
+						{% for empleado in empleados %}
+							<tr class="">
+								<td>{{ loop.index }}</td>
+								<td><a href="{{ path('empleado_show', { 'id': empleado.id }) }}">{{ empleado.nombreCompleto }}</a></td>
+					 			<td>{{ empleado.correo }}</td>
+								<td>{{ empleado.direccion }}</td>
+								<td>{% if empleado.fechaNacimiento %}{{ empleado.fechaNacimiento|date('Y-m-d') }}{% endif %}</td>
+								
+								<!-- verificacion de la asignacion de los depositivos-->
+								<td>
+									{% for ordenador in empleado.ordenadores if ordenador.id %}
+									<a href="{{ path('ordenador_show', { 'id': ordenador.id }) }}">{{ ordenador.alias }}</a>
+									{% else %}
+									Sin Ordenador										
+									{% endfor %}
+								</td>		
+								<td>				
+									{% for movil in empleado.moviles if movil.id %}
+									
+									-<a href="{{ path('movil_show', { 'id': movil.id }) }}">{{ movil.modelo }}</a>
+									<br>
+									{% else %}
+									Sin Movil									
+									{% endfor %}
+								</td>
+								<td>
+									{% for impresora in empleado.impresoras if impresora.id %}
+									-<a href="{{ path('impresora_show', { 'id': impresora.id }) }}">{{ impresora.alias }}</a>
+									{% else %}
+									Sin Impresora		
+									{% endfor %}
+								</td>
+								
+								<td><a href="{{ path('empleado_edit', { 'id': empleado.id }) }}">Editar</a></td>
+								<td><a href="{{ path('empleado_delete', { 'id': empleado.id }) }}">Eliminar</a></td>
+							</tr>						
+						{% endfor %}
+						{% else %}
+							<tr>
+								<th>
+									<span>
+									No Hay Empleados <a href="{{ path('empleado_new') }}">Crea Uno a Hora</a>
+									<span>
+								</th>
+							</tr>
+						 {% endif %}
+							<tr class="success">								
+							</tr>
+							<tr class="error">								
+							</tr>
+							<tr class="warning">								
+							</tr>
+							<tr class="info">								
+							</tr>
+						</tbody>
+					</table>
+				</div>
+</div>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends '::layout_admin.html.twig' %}
+{% block titulo %}Informacion del Empleado{{entity.nombreCompleto}}{% endblock %}
+
+{% block contenedor %}
+<div class="span12">
+	<h3 class="text-center text-info"> Informacion de Empleado. </h3>
+	<div class="media well">
+		
+		<div class="media-body">		
+		<img src="{{ asset('img/user_info.png') }}" class="media-object" alt="">									
+			<div class="dateil"	>
+				<table>
+					<tr>
+						<td><h4 class="media-heading"><span>Nombre Completo :</span></h4></td>
+						<td><h4 class="media-heading"><span>{{ entity.nombreCompleto }}</span> </h4></td>
+					</tr>
+					<tr>
+						<th>Correo : </th>
+						<td>{{ entity.correo }}</td>
+					</tr>
+					<tr>
+						<th>Direccion : </th>
+						<td>{{ entity.direccion }}</td>
+					</tr>
+					<tr>
+						<th>Fecha Nacimiento : </th>
+						<td>{% if entity.fechaNacimiento %}{{ entity.fechaNacimiento | date('d-m-Y') }}{% endif %}</td>
+					</tr>
+					<tr>
+						<th>Movil :</th>
+						<td>
+						{% for movil in entity.moviles if movil %}
+						<a href="{{ path('movil_show', { 'id': movil.id }) }}">{{ movil.modelo }}</a>
+						<br>
+						{% else %}
+						
+						Sin Movil
+						
+						{% endfor %}
+						<td>
+					</tr>
+					<tr>
+						<th>Ordenador :</th>
+						<td>
+						{% for ordenador in entity.ordenadores if ordenador %}
+						<a href="{{ path('ordenador_show', { 'id': ordenador.id }) }}">{{ ordenador.alias }}</a>
+						{% else %}
+						
+						Sin Ordenador
+						
+						{% endfor %}
+						</td>
+					</tr>
+					<tr>
+						<th>Impresora :</th>
+						<td>
+						{% for impresora in entity.impresoras if impresora %}
+						<a href="{{ path('impresora_show', { 'id': impresora.id }) }}">{{ impresora.alias }}</a>
+						{% else %}
+						
+						Sin Impresora
+						
+						{% endfor %}
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<form action="{{ path('empleado_edit', { 'id': entity.id }) }}" method="post">				            
+					            <button type="submit" class="btn btn-info">Editar</button>
+					        </form>
+					        
+					        <form action="{{ path('empleado_delete', { 'id': entity.id }) }}" method="post">
+					            <button type="submit" class="btn btn-warning" >Eliminar</button>
+					        </form>	
+					        
+						</td>
+					</tr>									
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

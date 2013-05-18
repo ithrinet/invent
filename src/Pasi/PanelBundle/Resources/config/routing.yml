@@ -1,0 +1,19 @@
+panel:
+    pattern:  /
+    defaults: { _controller: "PanelBundle:Panel:index" }
+
+panel_empleado:
+    resource: "@PanelBundle/Resources/config/routing/empleado.yml"
+    prefix:   /empleado
+
+panel_impresora:
+    resource: "@PanelBundle/Resources/config/routing/impresora.yml"
+    prefix:   /impresora
+
+panel_movil:
+    resource: "@PanelBundle/Resources/config/routing/movil.yml"
+    prefix:   /movil
+
+panel_ordenador:
+    resource: "@PanelBundle/Resources/config/routing/ordenador.yml"
+    prefix:   /ordenador

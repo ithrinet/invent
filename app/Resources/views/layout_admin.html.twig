@@ -1,0 +1,76 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<div class="container">
+	{% block header %}
+		<div class="span12">
+			<div class="page-header">
+				<h2> Panel de Gestion <small>Usuario</small></h2>
+			</div>
+			<ul class="nav nav-pills">
+				<li class="">
+					<a href="{{ path('panel') }}">Panel</a>
+				</li>
+				<li class="dropdown pull-left">
+					<a href="{{ path('empleado') }}" data-toggle="dropdown" class="dropdown-toggle">Empleado<strong class="caret"></strong></a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="{{ path('empleado') }}">Lista</a>
+						</li>
+						<li>
+							<a href="{{ path('empleado_new') }}">Crear</a>
+						</li>
+					</ul>
+				</li>
+				<li class="dropdown pull-left">
+					<a href="{{ path('ordenador') }}" data-toggle="dropdown" class="dropdown-toggle">Ordenador	<strong class="caret"></strong></a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="{{ path('ordenador') }}">Lista</a>
+						</li>
+						<li>
+							<a href="{{ path('ordenador_new') }}">Crear</a>
+						</li>
+					</ul>
+				</li>
+				<li class="dropdown pull-left">
+					<a href="{{ path('impresora') }}" data-toggle="dropdown" class="dropdown-toggle">Impresora<strong class="caret"></strong></a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="{{ path('impresora') }}">Lista</a>
+						</li>
+						<li>
+							<a href="{{ path('impresora_new') }}">Crear</a>
+						</li>
+					</ul>
+				</li>
+				<li class="dropdown pull-left">
+					<a href="{{ path('movil') }}" data-toggle="dropdown" class="dropdown-toggle">Moviles<strong class="caret"></strong></a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="{{ path('movil') }}">Lista</a>
+						</li>
+						<li>
+							<a href="{{ path('movil_new') }}">Crear</a>
+						</li>
+					</ul>
+				</li>
+				<li class="dropdown pull-right">
+					<a href="{{ path('portada') }}">Sitio Publico</a>
+				</li>
+			</ul>
+		</div>			
+	{% endblock %}
+	
+	{% block contenedor %}
+	{% endblock %}
+				
+	{% block footer %}
+		<div class="span12">
+			<div class="page-footer">
+				<h1> Example page Footer <small>Subtext for footer</small></h1>
+			</div>
+		</div>
+	{% endblock %}	
+</div>				
+{% endblock %}
