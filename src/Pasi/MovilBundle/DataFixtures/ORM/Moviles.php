@@ -73,6 +73,7 @@ class Moviles extends AbstractFixture implements OrderedFixtureInterface, Contai
 	private function getNumero()
 	{
 		$prefijo = array('061', '052', '062','052', '063', '053');
-		return $prefijo[array_rand($prefijo)].sprintf('%02s%03s', rand(0, 9), rand(0, 99999));
+		
+		return $prefijo[array_rand($prefijo)].sprintf('%06s', rand(0, 9999999));
 	}
 }
