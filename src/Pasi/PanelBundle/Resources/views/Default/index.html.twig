@@ -1,1 +1,18 @@
-hola estas en panel
+<table>
+	 <tr>
+		 <th>Nombre</th>
+		 <th class=”columna_acciones”>Acciones</th>
+	 </tr>
+	{% for item in pager.getResults %}
+	<tr class=”{{ cycle(['par', 'impar'], loop.index) }}”>
+		<td>{{ item.name }}</td>
+		<td class=”columna_acciones”>Editar | Borrar</td>
+	</tr>
+	{% endfor %}
+</table>
+
+{% if pager.isPaginable %}
+
+{{ paginate(pager,’Store_Admin_Manufacturers_List’) }}
+
+{% endif %}
