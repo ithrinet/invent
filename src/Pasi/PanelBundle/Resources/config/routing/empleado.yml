@@ -3,7 +3,7 @@ empleado:
     defaults: { _controller: "PanelBundle:Empleado:index" }
 
 empleado_show:
-    pattern:  /{id}/show
+    pattern:  /show/{id}
     defaults: { _controller: "PanelBundle:Empleado:show" }
 
 empleado_new:
@@ -16,14 +16,18 @@ empleado_create:
     requirements: { _method: post }
 
 empleado_edit:
-    pattern:  /{id}/edit
+    pattern:  /edit/{id}
     defaults: { _controller: "PanelBundle:Empleado:edit" }
 
 empleado_update:
-    pattern:  /{id}/update
+    pattern:  /update/{id}
     defaults: { _controller: "PanelBundle:Empleado:update" }
     requirements: { _method: post }
 
 empleado_delete:
-    pattern:  /{id}/delete
+    pattern:  /delete/{id}
     defaults: { _controller: "PanelBundle:Empleado:delete" }
+
+empleado_paginas:
+    pattern:  /paginas/{page}
+    defaults: { _controller: "PanelBundle:default:index" }
