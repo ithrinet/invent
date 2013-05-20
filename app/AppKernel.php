@@ -21,14 +21,14 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
         	new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
         		
-        	new MakerLabs\PagerBundle\MakerLabsPagerBundle(),
-        		
             new Pasi\OrdenadorBundle\OrdenadorBundle(),
             new Pasi\ImpresoraBundle\ImpresoraBundle(),
             new Pasi\MovilBundle\MovilBundle(),
             new Pasi\EmpleadoBundle\EmpleadoBundle(),
             new Pasi\PanelBundle\PanelBundle(),
             new Pasi\FrontedBundle\FrontedBundle(),
+        		
+            
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
