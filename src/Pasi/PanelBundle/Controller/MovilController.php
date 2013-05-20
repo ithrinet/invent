@@ -79,7 +79,7 @@ class MovilController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('movil'));
+            return $this->redirect($this->generateUrl('movil_show', array('id' => $entity->getId())));
         }
 
         return $this->render('PanelBundle:Movil:new.html.twig', array(
@@ -130,7 +130,7 @@ class MovilController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('movil'));
+            return $this->redirect($this->generateUrl('movil_show', array('id' => $entity->getId())));
         }
 
         return $this->render('PanelBundle:Movil:edit.html.twig', array(
