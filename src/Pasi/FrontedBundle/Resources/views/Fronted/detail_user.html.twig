@@ -30,6 +30,11 @@
 														<th>Fecha Nacimiento : </th>
 														<td>{{ empleado.fechaNacimiento|date('Y-m-d H:i:s') }}</td>
 													</tr>
+																										
+													<tr>
+														<th>Puesto :  </th>
+														<td>{{ empleado.trabajo }}</td>
+													</tr>
 													
 													{% for movil in movil %}
 													<tr>

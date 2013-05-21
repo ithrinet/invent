@@ -3,7 +3,7 @@ impresora:
     defaults: { _controller: "PanelBundle:Impresora:index" }
 
 impresora_show:
-    pattern:  /{id}/show
+    pattern:  /show/{id}
     defaults: { _controller: "PanelBundle:Impresora:show" }
 
 impresora_new:
@@ -16,14 +16,14 @@ impresora_create:
     requirements: { _method: post }
 
 impresora_edit:
-    pattern:  /{id}/edit
+    pattern:  /edit/{id}
     defaults: { _controller: "PanelBundle:Impresora:edit" }
 
 impresora_update:
-    pattern:  /{id}/update
+    pattern:  /update/{id}
     defaults: { _controller: "PanelBundle:Impresora:update" }
     requirements: { _method: post }
 
 impresora_delete:
-    pattern:  /{id}/delete
+    pattern:  /delete/{id}
     defaults: { _controller: "PanelBundle:Impresora:delete" }

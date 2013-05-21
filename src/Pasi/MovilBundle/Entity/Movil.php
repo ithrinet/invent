@@ -38,7 +38,8 @@ class Movil
     /**
      * @var string
      *
-     * @ORM\ManyToOne(targetEntity="Pasi\EmpleadoBundle\Entity\Empleado", inversedBy="moviles")
+     * @ORM\ManyToOne(targetEntity="Pasi\EmpleadoBundle\Entity\Empleado", inversedBy="moviles", cascade="all")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
     private $empleado;
 

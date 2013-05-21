@@ -48,6 +48,12 @@ class Empleado
     /**
      * @var string
      *
+     * @ORM\Column(name="trabajo", type="string", length=100)
+     */
+    private $trabajo;
+    /**
+     * @var string
+     *
      * @ORM\Column(name="direccion", type="string", length=100)
      */
     private $direccion;
@@ -62,21 +68,21 @@ class Empleado
     /**
      * @var string
      *
-     * @ORM\OneToMany(targetEntity="Pasi\ImpresoraBundle\Entity\Impresora", mappedBy="empleado")
+     * @ORM\OneToMany(targetEntity="Pasi\ImpresoraBundle\Entity\Impresora", mappedBy="empleado", cascade={"persist", "merge"})
      */
     private $impresoras;
 
     /**
      * @var string
      *
-     * @ORM\OneToMany(targetEntity="Pasi\OrdenadorBundle\Entity\Ordenador", mappedBy="empleado")
+     * @ORM\OneToMany(targetEntity="Pasi\OrdenadorBundle\Entity\Ordenador", mappedBy="empleado", cascade={"persist"})
      */
     private $ordenadores;
 
     /**
      * @var Movil
      *
-     * @ORM\OneToMany(targetEntity="Pasi\MovilBundle\Entity\Movil", mappedBy="empleado")
+     * @ORM\OneToMany(targetEntity="Pasi\MovilBundle\Entity\Movil", mappedBy="empleado", cascade={"persist", "merge"})
      */
     private $moviles;
     /**
@@ -102,42 +108,7 @@ class Empleado
         $this->ordenadores = new \Doctrine\Common\Collections\ArrayCollection();
         $this->moviles = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    /**
-     * Set Ordenadores
-     *
-     * @param string $impresoras
-     * @return Empleado
-     */
-    public function setOrdenadores(\Doctrine\Common\Collections\ArrayCollection $ordenadores = null)
-    {
-    	$this->ordenadores = $ordenadores;
     
-    	return $this;
-    }
-    /**
-     * Set Moviles
-     *
-     * @param string $impresoras
-     * @return Empleado
-     */
-    public function setMoviles(\Doctrine\Common\Collections\ArrayCollection $moviles= null)
-    {
-    	$this->moviles = $moviles;
-    
-    	return $this;
-    }
-    /**
-     * Set Impresoras
-     *
-     * @param string $impresoras
-     * @return Empleado
-     */
-    public function setImpresoras(\Pasi\ImpresoraBundle\Entity\Impresora $impresoras= null)
-    {
-    	$this->impresoras = $impresoras;
-    
-    	return $this;
-    }
     /**
      * Get id
      *
@@ -215,6 +186,29 @@ class Empleado
     public function getCorreo()
     {
         return $this->correo;
+    }
+
+    /**
+     * Set trabajo
+     *
+     * @param string $trabajo
+     * @return Empleado
+     */
+    public function setTrabajo($trabajo)
+    {
+        $this->trabajo = $trabajo;
+    
+        return $this;
+    }
+
+    /**
+     * Get trabajo
+     *
+     * @return string 
+     */
+    public function getTrabajo()
+    {
+        return $this->trabajo;
     }
 
     /**

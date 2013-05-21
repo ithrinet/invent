@@ -78,10 +78,24 @@ class EmpleadoController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            
+            $item =  $form->getData();
+             
+            foreach($item->getOrdenadores() as $ordenador){
+            	$ordenador->setEmpleado($item);
+            }
+            foreach($item->getMoviles() as $movil){
+            	$movil->setEmpleado($item);
+            }
+            foreach($item->getImpresoras() as $impresora){
+            	$impresora->setEmpleado($item);
+            }
+            
+            
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('empleado'));
+            return $this->redirect($this->generateUrl('empleado_show',array('id'=>$entity->getId())));
         }
 
         return $this->render('PanelBundle:Empleado:new.html.twig', array(
@@ -131,10 +145,22 @@ class EmpleadoController extends Controller
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
+        	
+        	$item = $editForm->getData();
+        	
+        	foreach($item->getOrdenadores() as $ordenador){
+        		$ordenador->setEmpleado($item);
+        	}
+        	foreach($item->getMoviles() as $movil){
+        		$movil->setEmpleado($item);
+        	}
+        	foreach($item->getImpresoras() as $impresora){
+        		$impresora->setEmpleado($item);
+        	}
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('empleado'));
+            return $this->redirect($this->generateUrl('empleado_show',array('id'=>$entity->getId())));
         }
 
         return $this->render('EmpleadoBundle:Empleado:edit.html.twig', array(

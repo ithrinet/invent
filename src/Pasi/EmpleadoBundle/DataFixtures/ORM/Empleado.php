@@ -12,14 +12,14 @@ use Pasi\MovilBundle\Entity\Movil;
 use Pasi\EmpleadoBundle\Entity\Empleado;
 
 /**
- * Fixtures de la entidad Usuario.
- * Crea 500 usuarios de prueba con información muy realista.
+ * Fixtures de la entidad empleado.
+ * Crea 500 empleados de prueba con información muy realista.
  */
 class Empleados extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
 	public function getOrder()
 	{
-		return 40;
+		return 1;
 	}
 
 	private $container;
@@ -32,16 +32,17 @@ class Empleados extends AbstractFixture implements OrderedFixtureInterface, Cont
 	public function load(ObjectManager $manager)
 	{
 		for ($i=1; $i<=20; $i++) {
-			$usuario = new Empleado();
+			$empleado = new Empleado();
 
-			$usuario->setNombre($this->getNombre());
-			$usuario->setApellidos($this->getApellidos());
-			$usuario->setCorreo('usuario'.$i.'@localhost');
+			$empleado->setNombre($this->getNombre());
+			$empleado->setApellidos($this->getApellidos());
+			$empleado->setCorreo('empleado'.$i.'@localhost');
+			$empleado->setTrabajo($this->getTrabajo());
 			
-			$usuario->setDireccion($this->getDireccion());
-			$usuario->setFechaNacimiento(new \DateTime('now - '.rand(7000, 20000).' days'));
+			$empleado->setDireccion($this->getDireccion());
+			$empleado->setFechaNacimiento(new \DateTime('now - '.rand(7000, 20000).' days'));
 			
-			$manager->persist($usuario);
+			$manager->persist($empleado);
 		}
 
 		$manager->flush();
@@ -51,7 +52,7 @@ class Empleados extends AbstractFixture implements OrderedFixtureInterface, Cont
 	 * Generador aleatorio de nombres de personas.
 	 * Aproximadamente genera un 50% de hombres y un 50% de mujeres.
 	 *
-	 * @return string Nombre aleatorio generado para el usuario.
+	 * @return string Nombre aleatorio generado para el empleado.
 	 */
 	private function getNombre()
 	{
@@ -83,7 +84,7 @@ class Empleados extends AbstractFixture implements OrderedFixtureInterface, Cont
 	/**
 	 * Generador aleatorio de apellidos de personas.
 	 *
-	 * @return string Apellido aleatorio generado para el usuario.
+	 * @return string Apellido aleatorio generado para el empleado.
 	 */
 	private function getApellidos()
 	{
@@ -101,6 +102,21 @@ class Empleados extends AbstractFixture implements OrderedFixtureInterface, Cont
 		);
 
 		return $apellidos[array_rand($apellidos)].' '.$apellidos[array_rand($apellidos)];
+	}
+	private function getTrabajo()
+	{
+		// Los apellidos más populares en España según el INE
+		// Fuente: http://www.ine.es/daco/daco42/nombyapel/nombyapel.htm
+	
+		$trabajos = array(
+				'Director', 'Director Ejecutivo', 'Ejecutivo', 'Técnico', 'Técnico Oficial', 'Conductor',
+				'Técnico de Digitalización', 'Oficial de Servicios', 'Gestores de servicios', 'Técnico II', 
+				'Técnico III', 'Ejecutivo cargo','Gestor', 'Subdirector', 'Administrador', 'Director Técnico', 
+				'Director Ejecutivo', 'Responsable de Edificio',
+				'Técnico de Digitalización'
+		);
+	
+		return $trabajos[array_rand($trabajos)];
 	}
 	private function getCuidad()
 	{

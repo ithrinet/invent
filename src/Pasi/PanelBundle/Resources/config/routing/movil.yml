@@ -3,7 +3,7 @@ movil:
     defaults: { _controller: "PanelBundle:Movil:index" }
 
 movil_show:
-    pattern:  /{id}/show
+    pattern:  /show/{id}
     defaults: { _controller: "PanelBundle:Movil:show" }
 
 movil_new:
@@ -16,14 +16,14 @@ movil_create:
     requirements: { _method: post }
 
 movil_edit:
-    pattern:  /{id}/edit
+    pattern:  /edit/{id}
     defaults: { _controller: "PanelBundle:Movil:edit" }
 
 movil_update:
-    pattern:  /{id}/update
+    pattern:  /update/{id}
     defaults: { _controller: "PanelBundle:Movil:update" }
     requirements: { _method: post }
 
 movil_delete:
-    pattern:  /{id}/delete
+    pattern:  /delete/{id}
     defaults: { _controller: "PanelBundle:Movil:delete" }

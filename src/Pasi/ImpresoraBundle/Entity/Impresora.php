@@ -51,7 +51,8 @@ class Impresora
 
     /**
      * @var string
-     * @ORM\ManyToOne(targetEntity="Pasi\EmpleadoBundle\Entity\Empleado",inversedBy="impresoras")
+     * @ORM\ManyToOne(targetEntity="Pasi\EmpleadoBundle\Entity\Empleado",inversedBy="impresoras", cascade="all")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      * @
      */
     private $empleado;

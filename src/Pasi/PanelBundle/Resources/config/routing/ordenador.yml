@@ -3,7 +3,7 @@ ordenador:
     defaults: { _controller: "PanelBundle:Ordenador:index" }
 
 ordenador_show:
-    pattern:  /{id}/show
+    pattern:  /show/{id}
     defaults: { _controller: "PanelBundle:Ordenador:show" }
 
 ordenador_new:
@@ -16,15 +16,15 @@ ordenador_create:
     requirements: { _method: post }
 
 ordenador_edit:
-    pattern:  /{id}/edit
+    pattern:  /edit/{id}
     defaults: { _controller: "PanelBundle:Ordenador:edit" }
 
 ordenador_update:
-    pattern:  /{id}/update
+    pattern:  /update/{id}
     defaults: { _controller: "PanelBundle:Ordenador:update" }
     requirements: { _method: post }
 
 ordenador_delete:
-    pattern:  /{id}/delete
+    pattern:  /delete/{id}
     defaults: { _controller: "PanelBundle:Ordenador:delete" }
 

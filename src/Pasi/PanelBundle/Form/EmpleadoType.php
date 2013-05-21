@@ -21,6 +21,15 @@ class EmpleadoType extends AbstractType
             ->add('correo','email')
             ->add('direccion')
             ->add('fechaNacimiento', 'date')
+            ->add('ordenadores',null,array(
+            		'required'=> false,
+        		))
+            ->add('moviles',null,array(
+            		'required'=> false,
+        		))
+            ->add('impresoras',null,array(
+            		'required'=> false,
+       			))
             
            /* ->add('ordenadores', null, array(
             		'empty_value' =>'Selecciona',

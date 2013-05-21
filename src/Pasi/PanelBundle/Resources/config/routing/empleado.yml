@@ -27,7 +27,3 @@ empleado_update:
 empleado_delete:
     pattern:  /delete/{id}
     defaults: { _controller: "PanelBundle:Empleado:delete" }
-
-empleado_paginas:
-    pattern:  /paginas/{page}
-    defaults: { _controller: "PanelBundle:default:index" }

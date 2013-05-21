@@ -14,6 +14,7 @@
 								<th>NombreCompleto</th>
 								<th>Correo</th>
 								<th>Direccion</th>
+								<th>Puesto</th>
 								<th>Fechanacimiento</th>
 								<th>Ordenador</th>
 								<th>Movil</th>
@@ -28,6 +29,7 @@
 								<td><a href="{{ path('empleado_show', { 'id': empleado.id }) }}">{{ empleado.nombreCompleto }}</a></td>
 					 			<td>{{ empleado.correo }}</td>
 								<td>{{ empleado.direccion }}</td>
+								<td>{{ empleado.trabajo }}</td>
 								<td>{% if empleado.fechaNacimiento %}{{ empleado.fechaNacimiento|date('Y-m-d') }}{% endif %}</td>
 								
 								<!-- verificacion de la asignacion de los depositivos-->

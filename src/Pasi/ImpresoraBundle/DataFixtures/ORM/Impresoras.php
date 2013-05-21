@@ -20,7 +20,7 @@ class Impresoras extends AbstractFixture implements OrderedFixtureInterface, Con
 {
 	public function getOrder()
 	{
-		return 40;
+		return 2;
 	}
 
 	private $container;
