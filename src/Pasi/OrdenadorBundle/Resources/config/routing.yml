@@ -1,3 +1,0 @@
-ordenador_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: OrdenadorBundle:Default:index }

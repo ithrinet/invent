@@ -80,7 +80,7 @@ class ImpresoraController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('impresora'));
+            return $this->redirect($this->generateUrl('impresora_show', array('id' => $entity->getId())));
         }
 
         return $this->render('PanelBundle:Impresora:new.html.twig', array(
@@ -132,7 +132,7 @@ class ImpresoraController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('impresora'));
+            return $this->redirect($this->generateUrl('impresora_show', array('id' => $entity->getId())));
         }
 
         return $this->render('PanelBundle:Impresora:edit.html.twig', array(

@@ -1,15 +1,19 @@
 portada:
     pattern:  /
     defaults: { _controller: "FrontedBundle:Fronted:index" }
+
 detail_empleado:
-    pattern:  /user/{id}/detail
+    pattern:  /user/detail/{id}
     defaults: { _controller: "FrontedBundle:Fronted:empleado" }
+
 detail_ordenador:
-    pattern:  /ordenador/{id}/detail
+    pattern:  /ordenador/detail/{id}
     defaults: { _controller: "FrontedBundle:Fronted:ordenador" }
+
 detail_impresora:
-    pattern:  /impresora/{id}/detail
+    pattern:  /impresora/detail/{id}
     defaults: { _controller: "FrontedBundle:Fronted:impresora" }
+
 detail_movil:
-    pattern:  /movil/{id}/detail
+    pattern:  /movil/detail/{id}
     defaults: { _controller: "FrontedBundle:Fronted:movil" }

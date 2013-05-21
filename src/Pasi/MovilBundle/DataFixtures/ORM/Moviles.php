@@ -19,7 +19,7 @@ class Moviles extends AbstractFixture implements OrderedFixtureInterface, Contai
 {
 	public function getOrder()
 	{
-		return 40;
+		return 3;
 	}
 
 	private $container;
@@ -39,6 +39,7 @@ class Moviles extends AbstractFixture implements OrderedFixtureInterface, Contai
 
 			$movil->setModelo($this->getModelo());
 			$movil->setNumero($this->getNumero());
+			
 			$empleado = $empleados[array_rand($empleados)];
 			$movil->setEmpleado($empleado);
 			
@@ -62,7 +63,7 @@ class Moviles extends AbstractFixture implements OrderedFixtureInterface, Contai
 				'SW', 'Fd', 'Df', 'PS', 'GD', 'Mn'
 		);
 
-		return $marca[array_rand($marca)].' '.$serie[array_rand($serie)].' '.rand(1, 100);
+		return $marca[array_rand($marca)].' '.$serie[array_rand($serie)];
 	}
 
 	/**

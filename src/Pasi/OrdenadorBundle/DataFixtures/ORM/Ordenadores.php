@@ -19,7 +19,7 @@ class Ordenadores extends AbstractFixture implements OrderedFixtureInterface, Co
 {
 	public function getOrder()
 	{
-		return 40;
+		return 4;
 	}
 
 	private $container;
@@ -35,8 +35,9 @@ class Ordenadores extends AbstractFixture implements OrderedFixtureInterface, Co
         $empleados = $manager->getRepository('EmpleadoBundle:Empleado')->findAll();
 	
 		for ($i=1; $i<=20; $i++) {
+			
 			$ordenador = new Ordenador();
-			$nombre = $this->getNombre();
+			$nombre = $this->getNombre().$i;
 			$ordenador->setNombre($nombre);
 			$ordenador->setDisco(rand(100, 900).' GB');
 			$ordenador->setRam(rand(1, 10).' GB');

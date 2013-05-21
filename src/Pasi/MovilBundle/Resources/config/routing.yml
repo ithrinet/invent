@@ -1,3 +1,0 @@
-movil_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: MovilBundle:Default:index }

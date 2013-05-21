@@ -23,6 +23,10 @@
 						<td>{{ entity.direccion }}</td>
 					</tr>
 					<tr>
+						<th>Puesto : </th>
+						<td>{{ entity.trabajo }}</td>
+					</tr>
+					<tr>
 						<th>Fecha Nacimiento : </th>
 						<td>{% if entity.fechaNacimiento %}{{ entity.fechaNacimiento | date('d-m-Y') }}{% endif %}</td>
 					</tr>
@@ -44,6 +48,7 @@
 						<td>
 						{% for ordenador in entity.ordenadores if ordenador %}
 						<a href="{{ path('ordenador_show', { 'id': ordenador.id }) }}">{{ ordenador.alias }}</a>
+						<br>
 						{% else %}
 						
 						Sin Ordenador
@@ -56,6 +61,7 @@
 						<td>
 						{% for impresora in entity.impresoras if impresora %}
 						<a href="{{ path('impresora_show', { 'id': impresora.id }) }}">{{ impresora.alias }}</a>
+						<br>
 						{% else %}
 						
 						Sin Impresora

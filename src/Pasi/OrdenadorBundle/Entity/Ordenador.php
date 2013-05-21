@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Ordenador
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Pasi\OrdenadorBundle\Entity\OrdenadorRepository")
+ * @ORM\Entity
  */
 class Ordenador
 {
@@ -59,7 +59,8 @@ class Ordenador
     /**
      * @var string
      *
-     * @ORM\ManyToOne(targetEntity="Pasi\EmpleadoBundle\Entity\Empleado", inversedBy="ordenadores")
+     * @ORM\ManyToOne(targetEntity="Pasi\EmpleadoBundle\Entity\Empleado", inversedBy="ordenadores", cascade={"persist","merge"})
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
     private $empleado;
 
@@ -204,7 +205,7 @@ class Ordenador
      * @param \Pasi\EmpleadoBundle\Entity\Empleado $empleado
      * @return Ordenador
      */
-    public function setEmpleado(\Pasi\EmpleadoBundle\Entity\Empleado $empleado)
+    public function setEmpleado(\Pasi\EmpleadoBundle\Entity\Empleado $empleado = null)
     {
         $this->empleado = $empleado;
     

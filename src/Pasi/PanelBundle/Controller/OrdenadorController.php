@@ -78,7 +78,7 @@ class OrdenadorController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('ordenador'));
+            return $this->redirect($this->generateUrl('ordenador_show', array('id'=>$entity->getId())));
         }
 
         return $this->render('PanelBundle:Ordenador:new.html.twig', array(
@@ -131,7 +131,7 @@ class OrdenadorController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('ordenador'));
+            return $this->redirect($this->generateUrl('ordenador_show',array('id'=>$entity->getId())));
         }
     }
 
