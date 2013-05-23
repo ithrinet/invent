@@ -8,10 +8,6 @@ vendor/*
 web/uploads/*
 web/bundles/*
 
-# Archivos de configuraci?n
-app/config/parameters.ini
-app/config/parameters.yml
-
 # Archivos de entornos de desarrollo y editores de texto
 # (SublimeText, Eclipse, Zend Studio, Netbeans, PHPStorm, TextMate2)
 .buildpath
