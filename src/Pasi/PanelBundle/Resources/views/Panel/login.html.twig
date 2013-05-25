@@ -1,0 +1,16 @@
+<html>
+<head>
+
+</head>
+<body>
+{% if error %}
+{{ error.message }}
+{% endif %}
+	<form action="{{ path('login_check') }}" method="post">
+	<input type="text" name="_username" value="{{ last_username }}">
+	<input type="password" name="_password">
+	<input type="submit" value="Login">
+	</form>
+
+</body>
+</html>

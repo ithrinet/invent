@@ -5,3 +5,13 @@ fronted:
 panel:
     resource: "@PanelBundle/Resources/config/routing.yml"
     prefix:   /panel
+
+login:
+    pattern: /login
+    defaults: { _controller: PanelBundle:Panel:login }
+
+login_check:
+    pattern: /panel/login_check
+
+logout:
+    pattern: /panel/logout
