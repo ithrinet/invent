@@ -14,6 +14,12 @@
 						<li>
 							<a href="{{ path('panel') }}">Panel</a>
 						</li>
+						<li class="dropdown pull-right">
+							<form action = "{{ path('client_busqueda') }}" class="form-search">
+								<input type="text" class="input-medium search-query" name="buscar" /> 
+								<button type="submit" class="btn" value="Buscar">Search</button>
+							</form>
+						</li>
 					</ul>
 				</div>			
 			{% endblock %}

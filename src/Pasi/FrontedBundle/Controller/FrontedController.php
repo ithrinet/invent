@@ -93,4 +93,34 @@ class FrontedController extends Controller
     			
     	        ));
     }
+    public function buscarAction(){
+    	$cadena = $this->getRequest()->query->get('buscar');
+    	$em = $this->getDoctrine()->getEntityManager();
+    	
+    	$qb = $em->getRepository('EmpleadoBundle:Empleado')->createQueryBuilder('e');
+    	$empleado= $qb->where($qb->expr()->like('e.nombre', ':busqueda'))
+    				->orderBy('e.nombre','DESC')
+    				->setParameter('busqueda', '%'.$cadena.'%')
+    				->getQuery()
+    				->getResult();
+    	
+   /* $qb = $em->getRepository('PasiBibliotecaBundle:Album')->createQueryBuilder('a');
+    	$albums = $qb->where($qb->expr()->like('a.titulo', ':busqueda'))
+			    	->orderBy('a.fechaModificacion','DESC')
+			    	->setParameter('busqueda', '%'.$cadena.'%')
+			    	->getQuery()
+			    	->getResult();
+    	$qb = $em->getRepository('PasiBibliotecaBundle:Cancion')->createQueryBuilder('a');
+    	$canciones = $qb->where($qb->expr()->like('a.titulo', ':busqueda'))
+    	->orderBy('a.fechaModificacion','DESC')
+    	->setParameter('busqueda', '%'.$cadena.'%')
+    	->getQuery()
+    	->getResult();*/
+    	
+    	return $this->render('FrontedBundle:Fronted:busqueda.html.twig',
+    			array('empleado'=>$empleado,
+    				//	'albums'=>$albums,
+    					//'canciones'=>$canciones
+    	));
+    }
 }

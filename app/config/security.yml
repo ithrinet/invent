@@ -1,20 +1,17 @@
 security:
 
     firewalls:
-        administrator:
+        area_security:
             pattern: ^/panel
             form_login:
                 login_path: login
-                check_path: login_check
+                check_path: /panel/login_check
             logout: 
                 path: /panel/logout
                 target: /
-                
-       
-        
     access_control:
         - { path: ^/panel, roles: ROLE_ADMIN }
-
+              
     encoders:
         Pasi\PanelBundle\Entity\Usuario:
             algorithm: md5
@@ -24,3 +21,4 @@ security:
     providers:
         administrator:
             entity: {class: PanelBundle:Usuario, property: username}
+

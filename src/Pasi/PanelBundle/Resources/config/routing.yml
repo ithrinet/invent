@@ -18,3 +18,5 @@ panel_ordenador:
     resource: "@PanelBundle/Resources/config/routing/ordenador.yml"
     prefix:   /ordenador
 
+
+

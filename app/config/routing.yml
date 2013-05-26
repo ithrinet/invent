@@ -8,7 +8,7 @@ panel:
 
 login:
     pattern: /login
-    defaults: { _controller: PanelBundle:Panel:login }
+    defaults: { _controller: "PanelBundle:Panel:login" }
 
 login_check:
     pattern: /panel/login_check

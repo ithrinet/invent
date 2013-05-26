@@ -17,3 +17,7 @@ detail_impresora:
 detail_movil:
     pattern:  /movil/detail/{id}
     defaults: { _controller: "FrontedBundle:Fronted:movil" }
+
+client_busqueda:
+    pattern: /busqueda
+    defaults: { _controller: 'FrontedBundle:Fronted:buscar'}
