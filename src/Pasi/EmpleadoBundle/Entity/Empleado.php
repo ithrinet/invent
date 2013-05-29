@@ -3,6 +3,10 @@
 namespace Pasi\EmpleadoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Asserts;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 use Pasi\OrdenadoraBundle\Entity\Ordenador;
 use Pasi\ImpresoraBundle\Entity\Impresora;
 use Pasi\MovilBundle\Entity\Movil;
@@ -64,6 +68,10 @@ class Empleado
      * @ORM\Column(name="fechaNacimiento", type="date")
      */
     private $fechaNacimiento;
+	/**
+	 * @ORM\Column(type="string", nullable=true)
+	 */
+	private $foto;
 
     /**
      * @var string
@@ -84,7 +92,84 @@ class Empleado
      *
      * @ORM\OneToMany(targetEntity="Pasi\MovilBundle\Entity\Movil", mappedBy="empleado", cascade={"persist", "merge"})
      */
-    private $moviles;
+    private $moviles;/**
+	*
+	 * @Asserts\File(mimeTypes={"image/png","image/jpeg"}, mimeTypesMessage="Solo se permiten imagenes jpeg y png.")
+	 */
+	private $file;
+	
+	private $tempFile;
+	
+	public function getFile(){
+		return $this->file;
+	}
+	public function setFile(UploadedFile $file){
+		return $this->file = $file;
+	}
+	
+	public function getUploadRootDir(){
+		return __DIR__.'/../../../../web/'.$this->getUploadDir();
+	}
+	
+	public function getUploadDir(){
+		return 'uploads/empleados';
+	}
+	
+	public function getWebPath(){
+		if($this->foto == null){
+			return null;
+		}
+		return $this->getUploadDir().'/'.$this->foto;
+	}
+	
+	public function getAbsolutePath(){
+		if($this->foto ==null){
+			return null;
+		}
+		return $this->getUploadRootDir().'/'.$this->foto;
+	}
+	/**
+	 * @ORM\PrePersist()
+	 * @ORM\PreUpdate()
+	 */
+	public function preUpload(){
+		
+		if($this->file != null){
+			if($this->foto != null){
+				$this->tempFile = $this->foto;
+			}
+			
+			$this->foto = $this->file->getClientOriginalName();
+		}
+	}
+	
+	/**
+	 * @ORM\PostPersist()
+	 * @ORM\PostUpdate()
+	 */
+	public function upload(){
+		if($this->file != null){
+			
+			if($this->tempFile != null){
+				unlink($this->getUploadRootDir().'/'.$this->tempFile);
+			}
+			
+			$this->file->move($this->getUploadRootDir(),$this->foto);
+			
+			$this->file=null;
+		}
+		
+	}
+	
+	/**
+	 * @ORM\PostRemove()
+	 */
+	public function remove(){
+		if($this->foto != null){
+			unlink($this->getAbsolutePath());
+		}
+		
+	}
     /**
      * To _String
      */
