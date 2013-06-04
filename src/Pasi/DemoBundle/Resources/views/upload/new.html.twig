@@ -1,0 +1,35 @@
+{% extends '::layout.html.twig' %}
+
+{% block titulo %}upload creation{% endblock %}
+{% block javascripts %}
+<script type="text/javascript">
+ 	jQuery('#agregar_campo_file').click(function(e) {
+        e.preventDefault();
+        var files = jQuery('#unidad_imagenes');
+        var newWidget = files.attr('data-prototype');
+        newWidget = newWidget.replace(/\$\$name\$\$/g, files);
+        $('#unidad_imagenes').append(newWidget);
+        files++;
+        return false;
+    });
+</script>
+{% endblock %}
+
+{% block contenedor %}
+<h1>upload creation</h1>
+
+<form action="{{ path('upload_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <button type="submit" >Create</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('upload') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

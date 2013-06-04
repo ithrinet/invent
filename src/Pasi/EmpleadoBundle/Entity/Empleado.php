@@ -13,7 +13,7 @@ use Pasi\MovilBundle\Entity\Movil;
 
 /**
  * Empleado
- *
+ *@ORM\HasLifecycleCallbacks
  * @ORM\Table()
  * @ORM\Entity
  */
@@ -92,13 +92,17 @@ class Empleado
      *
      * @ORM\OneToMany(targetEntity="Pasi\MovilBundle\Entity\Movil", mappedBy="empleado", cascade={"persist", "merge"})
      */
-    private $moviles;/**
+    private $moviles;
+    
+
+
+    private $tempFile;
+    
+    /**
 	*
 	 * @Asserts\File(mimeTypes={"image/png","image/jpeg"}, mimeTypesMessage="Solo se permiten imagenes jpeg y png.")
 	 */
 	private $file;
-	
-	private $tempFile;
 	
 	public function getFile(){
 		return $this->file;
@@ -106,14 +110,15 @@ class Empleado
 	public function setFile(UploadedFile $file){
 		return $this->file = $file;
 	}
+
+	public function getUploadDir(){
+		return 'uploads/empleados';
+	}
 	
 	public function getUploadRootDir(){
 		return __DIR__.'/../../../../web/'.$this->getUploadDir();
 	}
 	
-	public function getUploadDir(){
-		return 'uploads/empleados';
-	}
 	
 	public function getWebPath(){
 		if($this->foto == null){

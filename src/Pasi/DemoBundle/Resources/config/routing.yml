@@ -1,0 +1,3 @@
+DemoBundle_upload:
+    resource: "@DemoBundle/Resources/config/routing/upload.yml"
+    prefix:   /upload

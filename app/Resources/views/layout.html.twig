@@ -11,8 +11,13 @@
 						<li class="active">
 							<a href="{{ path('portada') }}">Inicio</a>
 						</li>
+						
 						<li>
+						{% if is_granted('ROLE_ADMIN') %}
 							<a href="{{ path('panel') }}">Panel</a>
+						{% else %}
+							<a href="{{ path('login') }}">Login</a>
+						{% endif %}
 						</li>
 						<li class="dropdown pull-right">
 							<form action = "{{ path('client_busqueda') }}" class="form-search">

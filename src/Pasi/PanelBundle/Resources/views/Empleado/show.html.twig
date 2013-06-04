@@ -6,8 +6,12 @@
 	<h3 class="text-center text-info"> Informacion de Empleado. </h3>
 	<div class="media well">
 		
-		<div class="media-body">		
-		<img src="{{ asset('img/user_info.png') }}" class="media-object" alt="">									
+		<div class="media-body">
+		{% if entity.webPath %}
+		<img src="{{ asset(entity.webPath) }}" class="media-object" alt="">
+		{% else %}
+		<img src="{{ asset('img/user_info.png') }}" class="media-object" alt="">
+		{% endif %}
 			<div class="dateil"	>
 				<table>
 					<tr>

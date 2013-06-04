@@ -1,0 +1,30 @@
+upload:
+    pattern:  /
+    defaults: { _controller: "DemoBundle:upload:index" }
+
+upload_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "DemoBundle:upload:show" }
+
+upload_new:
+    pattern:  /new
+    defaults: { _controller: "DemoBundle:upload:new" }
+
+upload_create:
+    pattern:  /create
+    defaults: { _controller: "DemoBundle:upload:create" }
+    requirements: { _method: post }
+
+upload_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "DemoBundle:upload:edit" }
+
+upload_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "DemoBundle:upload:update" }
+    requirements: { _method: post }
+
+upload_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "DemoBundle:upload:delete" }
+    requirements: { _method: post }

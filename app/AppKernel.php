@@ -27,8 +27,7 @@ class AppKernel extends Kernel
             new Pasi\EmpleadoBundle\EmpleadoBundle(),
             new Pasi\PanelBundle\PanelBundle(),
             new Pasi\FrontedBundle\FrontedBundle(),
-        		
-            
+            new Pasi\DemoBundle\DemoBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

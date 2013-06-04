@@ -1,3 +1,7 @@
+demo:
+    resource: "@DemoBundle/Resources/config/routing.yml"
+    prefix:   /
+
 fronted:
     resource: "@FrontedBundle/Resources/config/routing.yml"
     prefix:   /
@@ -11,7 +15,7 @@ login:
     defaults: { _controller: "PanelBundle:Panel:login" }
 
 login_check:
-    pattern: /panel/login_check
+    pattern: /login_check
 
 logout:
-    pattern: /panel/logout
+    pattern: /logout
