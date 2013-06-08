@@ -1,24 +1,30 @@
 {% extends '::layout.html.twig' %}
 
+{% block titulo %}Resultados de la busqueda{% endblock %}
+
+
 {% block articulo %}
-<div class="span6">
-	<div class="widget-box">
-		<div class="widget-title">
-			<span class="icon">
-				<i class="icon-th-list"></i>
-			</span>
-			<h5>Empleados Encontrados</h5>
-		</div>
-		<div class="widget-content">
-		<ul>
-			{% for item in empleado %}
-			<li>{{ item.nombreCompleto }}</li>
-			{% else %}
-			<li>No se ha encontrado ning&uacute;n Empleado con esa b&uacute;squeda</li>
-			{% endfor %}
-		</ul>
-		</div>
+
+<div class="row">
+<div class="span3"></div>
+<div class="span9">
+{% for empleado in empleado %}	
+
+<div class="media">
+	 <a href="{{ path('detail_empleado', { 'id': empleado.id }) }}" class="pull-left"><img src="{{ asset('img/user.png') }}" class="media-object" alt=""></a>
+	<div class="media-body">
+		<h4 class="media-heading">
+			<a href="{{ path('detail_empleado', { 'id': empleado.id }) }}">{{ empleado.nombreCompleto }}</a>
+		</h4>
+		<label> Puesto : <b>{{ empleado.trabajo }}</b></label>
 	</div>
 </div>
+{% else %}
+<div class="media">
+<h4> No hay resultados</h4>
+</div>	
 
+{% endfor %}
+</div>
+</div>
 {% endblock %}

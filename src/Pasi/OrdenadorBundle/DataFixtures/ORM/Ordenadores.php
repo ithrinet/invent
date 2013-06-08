@@ -37,6 +37,7 @@ class Ordenadores extends AbstractFixture implements OrderedFixtureInterface, Co
 		for ($i=1; $i<=20; $i++) {
 			
 			$ordenador = new Ordenador();
+			
 			$nombre = $this->getNombre().$i;
 			$ordenador->setNombre($nombre);
 			$ordenador->setDisco(rand(100, 900).' GB');

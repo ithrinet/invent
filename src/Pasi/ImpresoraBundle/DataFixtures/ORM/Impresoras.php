@@ -8,7 +8,6 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-use Pasi\ImpresoraBundle\Entity\Imresora;
 use Pasi\EmpleadoBundle\Entity\Empleado;
 use Pasi\ImpresoraBundle\Entity\Impresora;
 

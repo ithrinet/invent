@@ -11,10 +11,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Pasi\MovilBundle\Entity\Movil;
 use Pasi\EmpleadoBundle\Entity\Empleado;
 
-/**
- * Fixtures de la entidad empleado.
- * Crea 500 empleados de prueba con información muy realista.
- */
+
 class Empleados extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
 	public function getOrder()
