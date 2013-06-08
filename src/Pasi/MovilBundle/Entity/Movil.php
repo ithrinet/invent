@@ -35,8 +35,8 @@ class Movil
      * @ORM\Column(name="numero", type="integer")
      * @Assert\NotBlank(message = "Debes ingresar un neumero de telefon valido.. 9 numeros")
      * @Assert\Regex(
-     *     pattern="/[0-9]{9}/",
-     *     message="Debes ingresar un neumero de telefon valido.. 9 numeros"
+     *     pattern="/^[5-6]{1}[1-9]{2}[0-9]{6}$/",
+     *     message="Telefon No valido.. Numero de comenyar con 5 o 6"
      * )
      */
     private $numero;
