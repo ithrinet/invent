@@ -1,0 +1,24 @@
+{% extends '::base.html.twig' %}
+
+{% block titulo %}Panel de Login{% endblock %}
+{% block estilos %}
+<link href="{{ asset('css/login.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+		{% if error %}
+		{{ error.message }}
+		{% endif %}
+		
+		<form id="login" action="{{ path('login_check') }}" method="post">
+		    <h1>Login</h1>
+		    <fieldset id="inputs">
+		        <input id="username" name="_username" placeholder="Utilisateur" autofocus="" required="" type="text" value="{{ last_username }}">   
+		        <input id="password" name="_password" placeholder="Mot de passe" required="" type="password">
+		    </fieldset>
+		    <fieldset id="actions">
+		        <input id="submit" value="Entrar" type="submit">
+		    </fieldset>
+		    <input name="action" value="Login" type="hidden"> 
+		</form>
+{% endblock %}
