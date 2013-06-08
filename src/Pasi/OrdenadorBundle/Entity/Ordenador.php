@@ -3,6 +3,7 @@
 namespace Pasi\OrdenadorBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Ordenador
@@ -25,6 +26,14 @@ class Ordenador
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=100)
+     * 
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 4,
+     *      max = 8,
+     *      minMessage = "debes escriber al menos 4 caracteres",
+     *      maxMessage = "No puedes escriber mas de  8 caracteres"
+     * )
      */
     private $nombre;
 
@@ -32,6 +41,11 @@ class Ordenador
      * @var string
      *
      * @ORM\Column(name="ram", type="string", length=100)
+     * @Assert\NotBlank(message = "Debes ingresar el cantidad de ram")
+     * @Assert\Regex(
+     *     pattern="/^\d+GB$/",
+     *     message="El Ram debe terminar con GB"
+     * )
      */
     private $ram;
 
@@ -39,6 +53,11 @@ class Ordenador
      * @var string
      *
      * @ORM\Column(name="disco", type="string", length=100)
+     * @Assert\NotBlank(message = "Debes ingresar el tamanio de disco")
+     * @Assert\Regex(
+     *     pattern="/^[0-9]+GB$/",
+     *     message="El Ram debe terminar con GB" 
+     * )
      */
     private $disco;
 

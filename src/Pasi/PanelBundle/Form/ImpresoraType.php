@@ -11,7 +11,9 @@ class ImpresoraType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nombre')
+            ->add('nombre',null, array(
+            		'required'=> false
+        ))
             ->add('marca')
             ->add('modelo')
             ->add('tipo', 'choice', array(

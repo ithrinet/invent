@@ -22,7 +22,8 @@ class EmpleadoType extends AbstractType
             ->add('direccion')
             ->add('trabajo')
             ->add('fechaNacimiento', 'date')
-            ->add('file','file')
+            ->add('file','file',array(
+            		'required' => false))
             ->add('ordenadores',null,array(
             		'required'=> false,
         		))

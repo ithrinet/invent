@@ -3,6 +3,7 @@
 namespace Pasi\MovilBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Movil
@@ -32,6 +33,11 @@ class Movil
      * @var integer
      *
      * @ORM\Column(name="numero", type="integer")
+     * @Assert\NotBlank(message = "Debes ingresar un neumero de telefon valido.. 9 numeros")
+     * @Assert\Regex(
+     *     pattern="/[0-9]{9}/",
+     *     message="Debes ingresar un neumero de telefon valido.. 9 numeros"
+     * )
      */
     private $numero;
 

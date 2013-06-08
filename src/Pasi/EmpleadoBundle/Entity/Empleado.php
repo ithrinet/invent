@@ -3,7 +3,7 @@
 namespace Pasi\EmpleadoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Asserts;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -46,6 +46,8 @@ class Empleado
      * @var string
      *
      * @ORM\Column(name="correo", type="string", length=100)
+     * @Assert\NotBlank(message = "Debes ingresar un Email valido")
+     * @Assert\Email(message="Debes ingresar un Email valido")
      */
     private $correo;
 
@@ -100,7 +102,12 @@ class Empleado
     
     /**
 	*
-	 * @Asserts\File(mimeTypes={"image/png","image/jpeg"}, mimeTypesMessage="Solo se permiten imagenes jpeg y png.")
+	 * @Assert\File(
+	 *      maxSize = "2M",
+	 *      maxSizeMessage = "Tamano Maximo es de 2 Mb.",
+	 *      mimeTypes = {"image/png","image/jpeg"}, 
+	 *      mimeTypesMessage = "Solo se permiten imagenes jpeg y png."
+	 *  )
 	 */
 	private $file;
 	

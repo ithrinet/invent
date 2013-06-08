@@ -3,6 +3,7 @@
 namespace Pasi\ImpresoraBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Impresora
@@ -24,7 +25,12 @@ class Impresora
     /**
      * @var string
      *
-     * @ORM\Column(name="nombre", type="string", length=100)
+     * @ORM\Column(name="nombre", type="string", length=100))
+     * @Assert\NotBlank(message = "El Nombre debe tener un numero")
+     * @Assert\Regex(
+     *     pattern="/^[a-zA-Z]+\d$/",
+     *     message="El Nombre debe tener un numero"
+     * )
      */
     private $nombre;
 
